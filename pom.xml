@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.huang</groupId>
+    <artifactId>Shop-Demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+    <module>Shop-Demo-dependencies</module>
+    <module>Shop-Demo-Commons</module>
+    <module>Shop-Demo-Domain</module>
+    <module>Shop-Demo-WebAdmin</module>
+    <module>Shop-Demo-WebUi</module>
+    <module>Shop-Demo-WebApi</module>
+    </modules>
+
+</project>
