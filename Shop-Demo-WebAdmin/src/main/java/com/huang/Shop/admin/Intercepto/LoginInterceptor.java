@@ -1,4 +1,5 @@
 package com.huang.Shop.admin.Intercepto;
+import com.huang.Shop.commons.Utils.ConstantUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,13 +14,13 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session=request.getSession();
-        if(session.getAttribute("LOGIN_USER")!=null) {
+        if(session.getAttribute(ConstantUtils.USER_SESSION)!=null) {
             // 登录成功不拦截
-            logger.info(session.getAttribute("LOGIN_USER").toString());
+            logger.info(session.getAttribute(ConstantUtils.USER_SESSION).toString());
             return true;
         }else {
             // 拦截后进入登录页面
-            response.sendRedirect("/Login");
+            response.sendRedirect("/admin/login");
             return false;
         }
     }
