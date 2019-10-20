@@ -2,12 +2,34 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>首页</title>
     <%
         pageContext.setAttribute("APP_PATH",request.getContextPath());
     %>
+    <jsp:include page="../Commons/header.jsp"/>
 </head>
-<body>
-    <h1>首页</h1>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <jsp:include page="../Commons/nav.jsp"/>
+        <jsp:include page="../Commons/menu.jsp"/>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    控制面板
+                    <small>首页</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> 控制面板</a></li>
+                    <li class="active">首页</li>
+                </ol>
+            </section>
+        </div>
+        <jsp:include page="../Commons/copyright.jsp"/>
+    </div>
+<jsp:include page="../Commons/footer.jsp"/>
 </body>
 </html>

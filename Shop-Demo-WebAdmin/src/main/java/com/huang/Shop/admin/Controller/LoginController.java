@@ -2,6 +2,7 @@ package com.huang.Shop.admin.Controller;
 import com.huang.Shop.admin.Service.UserService;
 import com.huang.Shop.commons.Utils.ConstantUtils;
 import com.huang.Shop.commons.Utils.CookieUtils;
+import com.huang.Shop.commons.Utils.DateUtils;
 import com.huang.Shop.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,6 +56,7 @@ public class LoginController {
                             String.format("%s:%s",email,password), 7*24*60*60);
             }
             session.setAttribute(ConstantUtils.USER_SESSION,users.get(0));
+            System.out.println(DateUtils.getCurrentDateTime());
             return "redirect:/home";
         }
     }
