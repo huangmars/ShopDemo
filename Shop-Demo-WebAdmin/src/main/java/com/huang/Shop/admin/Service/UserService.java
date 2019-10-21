@@ -5,4 +5,6 @@ import java.util.List;
 
 public interface UserService {
     public List<User> selectUserbyEmailandPassword(String email, String password);
+
+    public List<User> selectAllUser();
 }

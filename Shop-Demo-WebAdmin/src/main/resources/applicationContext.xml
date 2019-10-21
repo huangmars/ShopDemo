@@ -66,7 +66,6 @@
     <!--配置批量的sqlSession -->
     <bean id="sqlSessionBatch" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
-        <constructor-arg name="executorType" value="BATCH"/>
     </bean>
 
     <!-- 配置事务管理器,xml版-->

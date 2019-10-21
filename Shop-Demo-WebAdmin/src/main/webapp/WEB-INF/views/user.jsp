@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>员工管理</title>
+    <%
+        pageContext.setAttribute("APP_PATH",request.getContextPath());
+    %>
     <jsp:include page="../Commons/header.jsp"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -30,9 +33,20 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
+                        <!-- /.box-header -->
                         <div class="box-header">
-                            <h3 class="box-title">用户列表</h3>
-                            <div class="box-tools">
+                            <div class="col-md-6">
+                                <h3 class="box-title">用户列表</h3>
+                            </div>
+
+                            <div class="box-group col-md-3">
+                                <button type="button" class="btn btn-default btn-sm">新增用户</button>
+                                <button type="button" class="btn btn-default btn-sm">批量删除</button>
+                                <button type="button" class="btn btn-default btn-sm">导入</button>
+                                <button type="button" class="btn btn-default btn-sm">导出</button>
+                            </div>
+
+                            <div class="box-tools col-md-3">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
@@ -42,38 +56,62 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.box-header -->
+                        <!-- /.box-body -->
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
                                     <th><input type="checkbox"></th>
                                     <th>ID</th>
-                                    <th>User</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Reason</th>
+                                    <th>姓名</th>
+                                    <th>账号</th>
+                                    <th>密码</th>
+                                    <th>邮件</th>
                                     <th>操作</th>
                                 </tr>
+                                <c:forEach items="${pageInfo.list}" var="user">
                                 <tr>
                                     <th><input type="checkbox"></th>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>Bacon ipsum </td>
+                                    <td>${user.tId}</td>
+                                    <td>${user.tUsername}</td>
+                                    <td>${user.tAccount}</td>
+                                    <td>${user.tPassword}</td>
+                                    <td>${user.tEmail}</td>
                                     <td>
                                         <button type="button" class="btn btn-default btn-sm">查看</button>
                                         <button type="button" class="btn btn-info btn-sm">编辑</button>
                                         <button type="button" class="btn btn-danger btn-sm">删除</button>
                                     </td>
                                 </tr>
+                                </c:forEach>
                             </table>
                         </div>
-                        <!-- /.box-body -->
+
+                        <div class="box-footer">
+                            <div class="col-sm-8">
+                                <div class="dataTables_info" id="example2_info" role="status" aria-live="polite" style="margin-top: 25px">
+                                    Showing ${pageInfo.pageNum} of ${pageInfo.pages} pages</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button previous" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a></li>
+
+                                        <c:forEach items="${pageInfo.navigatepageNums}" var="navigatepageNums">
+                                            <li class="paginate_button ">
+                                                <a class="${navigatepageNums==pageInfo.pageNum?"active":""}" href="${APP_PATH}/users?pageNum=${navigatepageNums}" aria-controls="example2" data-dt-idx="1" tabindex="0">${navigatepageNums}</a>
+                                            </li>
+                                        </c:forEach>
+
+                                        <li class="paginate_button next disabled" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <!-- /.box -->
                 </div>
             </div>
+
         </section>
     </div>
     <jsp:include page="../Commons/copyright.jsp"/>

@@ -22,10 +22,10 @@
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
                                 <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+                    </button>
+                </span>
             </div>
         </form>
         <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -40,8 +40,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu"> <%--class="active"--%>
-                    <li><a href="${APP_PATH}/emplist"><i class="fa fa-circle-o"></i> 员工管理</a></li>
-                    <li><a href="${APP_PATH}/userlist"><i class="fa fa-circle-o"></i> 用户管理</a></li>
+                    <li><a href="${APP_PATH}/emps"><i class="fa fa-circle-o"></i> 员工管理</a></li>
+                    <li><a href="${APP_PATH}/users"><i class="fa fa-circle-o"></i> 用户管理</a></li>
                 </ul>
             </li>
         </ul>

@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
         example.createCriteria().andTEmailEqualTo(email).andTPasswordEqualTo(password);
         return userMapper.selectByExample(example);
     }
+
+
+    @Override
+    public List<User> selectAllUser() {
+        return userMapper.selectAllUser();
+    }
 }

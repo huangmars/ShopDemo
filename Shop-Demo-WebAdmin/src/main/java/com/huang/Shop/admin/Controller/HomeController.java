@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.logging.Logger;
 
 
 @Controller
 public class HomeController {
+
+    private Logger logger = Logger.getLogger("HomeController.class");
 
     @GetMapping(value = "/home")
     public String toHomePage(Model model){
